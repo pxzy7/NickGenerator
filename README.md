@@ -1,21 +1,110 @@
-### 4 characters Minecraft nick gen made by pxzy and ChatGPT wow
+## 🎮 4-Character Minecraft Nickname Generator
 
+**Made by `pxzy` & ChatGPT**
 *(i don’t sk1dded 4ever... but maybe I intend to 👀)*
 
 ---
 
-**Passo 1:** Abra o `PythonDownload.url` para baixar o Python mais recente.
-**Passo 2:** Abra o `start.bat` e espere baixar as dependências do PyP/PiP. O gerador iniciará automaticamente depois disso.
+### 🔧 Features
 
-**Em caso de bugs, erros ou travamentos**, contate o [ChatGPT](https://chatgpt.com/) ou o usuário [px.zy](https://discordlookup.com/user/1335783201850789958) no Discord.
+* ⚡️ **Generate short (4 char) to long (up to 16 chars) nicknames**
+* 🔤 **Modes**:
 
-por: pxzy e ChatGPT
+  * Lowercase only
+  * Numbers only
+  * Lowercase + Numbers
+  * **ALL** (lowercase + UPPERCASE + numbers)
+  * **3-char mode** (super rare, ultra thread-heavy 👻)
+* 🖥️ **Beautiful dark GUI**
+* ✍️ **Comic Sans font** (the only one that matters)
+* 🐍 **Optimized Python**
+* 📡 Checks nickname availability using:
+
+  * 🔍 **MushAPI**
+  * 🌐 **Ashcon/Mojang API**
 
 ---
 
-**Step 1:** Open `PythonDownload.url` to download the latest Python version.
-**Step 2:** Open `start.bat` and wait for PYP/PIP dependencies to install. The generator will start automatically after that.
+### 🚧 What’s coming (maybe... or not)
 
-In case of bugs, errors or crashes, contact [ChatGPT](https://chatgpt.com/) or [px.zy](https://discordlookup.com/user/1335783201850789958) on Discord.
+* 🌐 Web GUI (will probably suffer and quit midway)
+* ✅ Custom nickname checker (check if your nick exists or not)
 
-By: pxzy and ChatGPT
+---
+
+### 🧪 How to use
+
+1. Open `PythonDownload.url` and install the latest Python
+2. Run `start.bat` — dependencies will install automatically
+3. Generator launches and does the magic
+
+---
+
+### 🐞 In case of bugs / errors / crashes:
+
+* Contact [ChatGPT](https://chatgpt.com/)
+* Or message [px.zy on Discord](https://discordlookup.com/user/1335783201850789958)
+
+---
+
+**🧠 By: `pxzy` & ChatGPT**
+
+---
+
+<details>
+<summary><strong>📘 Versão em Português (clique aqui)</strong></summary>
+
+## 🎮 Gerador de Nicknames para Minecraft (4 caracteres)
+
+**Feito por `pxzy` e ChatGPT**
+*(eu nunca sk1ddei... mas talvez eu vá 👀)*
+
+---
+
+### 🔧 Funções
+
+* ⚡️ **Gere nicks curtos (4 letras) até longos (16 letras)**
+* 🔤 **Modos**:
+
+  * Apenas letras minúsculas
+  * Apenas números
+  * Letras minúsculas + números
+  * **TODOS** (minúsculas + MAIÚSCULAS + números)
+  * **Modo 3 letras** (muito raro, consome MUITA thread 👻)
+* 🖥️ **Interface escura, minimalista e bonita**
+* ✍️ **Fonte Comic Sans** (a melhor, foda-se)
+* 🐍 **Python otimizado**
+* 📡 Checagem de nicks via:
+
+  * 🔍 **MushAPI**
+  * 🌐 **Ashcon/Mojang API**
+
+---
+
+### 🚧 O que pretendo (talvez... ou não)
+
+* 🌐 Web GUI (provavelmente vou desistir no meio)
+* ✅ Verificador de nick personalizado (ver se o nick existe)
+
+---
+
+### 🧪 Como usar
+
+1. Abra `PythonDownload.url` e baixe o Python mais recente
+2. Execute `start.bat` — as dependências vão instalar automaticamente
+3. O gerador abrirá sozinho depois disso
+
+---
+
+### 🐞 Em caso de bugs / erros / travamentos:
+
+* Fale com o [ChatGPT](https://chatgpt.com/)
+* Ou com o [px.zy no Discord](https://discordlookup.com/user/1335783201850789958)
+
+---
+
+**🧠 Por: `pxzy` e ChatGPT**
+
+</details>
+
+---
