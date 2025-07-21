@@ -1,3 +1,4 @@
+<img width="498" height="724" alt="image" src="https://github.com/user-attachments/assets/2f01c0f6-7467-4a87-9c31-ef96a16a5b76" />
 ## 🎮 4-Character Minecraft Nickname Generator
 
 **Made by `pxzy` & ChatGPT support**
