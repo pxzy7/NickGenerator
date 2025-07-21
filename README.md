@@ -47,17 +47,13 @@
 
 ---
 
-**🧠 By: `pxzy` & ChatGPT**
-
----
-
 <details>
 <summary><strong>📘 Versão em Português (clique aqui)</strong></summary>
 
 ## 🎮 Gerador de Nicknames para Minecraft (4 caracteres)
 
 **Feito por `pxzy` e ChatGPT**
-*(eu nunca sk1ddei... mas talvez eu vá 👀)*
+*(eu nunca sk1ddei... mas talvez eu irei... 👀)*
 
 ---
 
@@ -102,9 +98,4 @@
 * Ou com o [px.zy no Discord](https://discordlookup.com/user/1335783201850789958)
 
 ---
-
-**🧠 Por: `pxzy` e ChatGPT**
-
 </details>
-
----
