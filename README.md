@@ -53,7 +53,7 @@
 ## 🎮 Gerador de Nicknames para Minecraft (4 caracteres)
 
 **Feito por `pxzy` e o ChatGPT ajudando**
-*(eu nunca sk1ddei... mas talvez eu irei... 👀)*
+(eu não sk1dei o 4ever... mas talvez eu pretenda 👀)
 
 ---
 
