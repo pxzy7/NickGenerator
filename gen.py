@@ -122,8 +122,8 @@ def generate_and_check(length, amount, first_letter, charset, use_underscore):
                 current_generated_nicks.append(nick)
 
             safe_log(f"Generated: {nick}")
-            safe_log(f"Mush: {'Available' if mush_available else 'Taken'}")
-            safe_log(f"Ashcon: {'Available' if ashcon_available else 'Taken'}")
+            safe_log(f"Mush: {'✅ Available' if mush_available else '❌ Taken'}")
+            safe_log(f"Ashcon: {'✅ Available' if ashcon_available else '❌ Taken'}")
             safe_log("----------------------------------------")
 
             time.sleep(0.05 if charset == "mojang_random3" else 0.3)
@@ -202,24 +202,24 @@ comic_font_large = ctk.CTkFont(family="Comic Sans MS", size=20, weight="bold")
 frame = ctk.CTkFrame(root, fg_color="#1a1a1a", border_color="#cc0000", border_width=2)
 frame.pack(padx=15, pady=15, fill="both", expand=True)
 
-title = ctk.CTkLabel(frame, text="🎮 Nick Generator - by: pxzy", font=comic_font_large, text_color="#ffffff")
+title = ctk.CTkLabel(frame, text="Nick Generator - by pxzy", font=comic_font_large, text_color="#ffffff")
 title.pack(pady=(15, 20))
 
 input_frame = ctk.CTkFrame(frame, fg_color="#2a2a2a", border_color="#cc0000", border_width=1)
 input_frame.pack(pady=10, padx=15, fill="x")
 
 ctk.CTkLabel(input_frame, text="Number of Nicks:", font=comic_font, text_color="#ffffff").pack(pady=(10, 0))
-amount_entry = ctk.CTkEntry(input_frame, placeholder_text="Ex: 5", font=comic_font,
+amount_entry = ctk.CTkEntry(input_frame, placeholder_text="Ex: 2", font=comic_font,
                            fg_color="#333333", border_color="#cc0000", text_color="#ffffff")
 amount_entry.pack(pady=(0, 10), padx=15, fill="x")
 
 ctk.CTkLabel(input_frame, text="Nick Length (4-16):", font=comic_font, text_color="#ffffff").pack()
-length_entry = ctk.CTkEntry(input_frame, placeholder_text="Ex: 8", font=comic_font,
+length_entry = ctk.CTkEntry(input_frame, placeholder_text="Ex: 6", font=comic_font,
                            fg_color="#333333", border_color="#cc0000", text_color="#ffffff")
 length_entry.pack(pady=(0, 10), padx=15, fill="x")
 
-ctk.CTkLabel(input_frame, text="First Letter (optional):", font=comic_font, text_color="#ffffff").pack()
-first_letter_entry = ctk.CTkEntry(input_frame, placeholder_text="Ex: A", font=comic_font,
+ctk.CTkLabel(input_frame, text="First Character (optional):", font=comic_font, text_color="#ffffff").pack()
+first_letter_entry = ctk.CTkEntry(input_frame, placeholder_text="Ex: a or A", font=comic_font,
                                  fg_color="#333333", border_color="#cc0000", text_color="#ffffff")
 first_letter_entry.pack(pady=(0, 10), padx=15, fill="x")
 
@@ -234,26 +234,33 @@ charset_option.pack(pady=(0, 10), padx=15, fill="x")
 underscore_check = ctk.CTkCheckBox(input_frame, text="Use Underscore (_)", font=comic_font, text_color="#ffffff")
 underscore_check.pack(pady=(0, 15), padx=15)
 
+# Frame para todos os botões em grid 2x2
 button_frame = ctk.CTkFrame(frame, fg_color="#2a2a2a", border_color="#cc0000", border_width=1)
 button_frame.pack(padx=15, pady=5, fill="x")
 
+# Configurar o grid para ser responsivo
+button_frame.grid_columnconfigure(0, weight=1)
+button_frame.grid_columnconfigure(1, weight=1)
+
+# Primeira linha: Start e Stop Generation
 start_button = ctk.CTkButton(button_frame, text="Start Generation", command=start_generation,
                              font=comic_font, fg_color="#cc0000", hover_color="#ff1a1a")
-start_button.pack(side="left", expand=True, fill="x", padx=5, pady=10)
+start_button.grid(row=0, column=0, padx=5, pady=10, sticky="ew")
 
 stop_button = ctk.CTkButton(button_frame, text="Stop Generation", command=stop_generation,
                             font=comic_font, fg_color="#cc0000", hover_color="#ff1a1a")
-stop_button.pack(side="left", expand=True, fill="x", padx=5, pady=10)
+stop_button.grid(row=0, column=1, padx=5, pady=10, sticky="ew")
 
-# New buttons
-clear_button = ctk.CTkButton(frame, text="Clear Logs", command=clear_logs,
+# Segunda linha: Clear Logs e Copy Current Generated Nicks
+clear_button = ctk.CTkButton(button_frame, text="Clear Logs", command=clear_logs,
                              font=comic_font, fg_color="#cc0000", hover_color="#ff1a1a")
-clear_button.pack(pady=5, padx=30, fill="x")
+clear_button.grid(row=1, column=0, padx=5, pady=(0, 10), sticky="ew")
 
-copy_button = ctk.CTkButton(frame, text="Copy Current Generated Nicks", command=copy_current_nicks,
+copy_button = ctk.CTkButton(button_frame, text="Copy Generated Nicks", command=copy_current_nicks,
                             font=comic_font, fg_color="#cc0000", hover_color="#ff1a1a")
-copy_button.pack(pady=5, padx=30, fill="x")
+copy_button.grid(row=1, column=1, padx=5, pady=(0, 10), sticky="ew")
 
+# Logbox
 logbox = ctk.CTkTextbox(frame, height=180, state="disabled",
                         fg_color="#1a1a1a", border_color="#cc0000", text_color="#ffffff",
                         font=comic_font)
