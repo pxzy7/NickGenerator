@@ -1,6 +1,6 @@
 ## 🎮 4-Character Minecraft Nickname Generator
 
-**Made by `pxzy` & ChatGPT support**
+**Made by `pxzy`**
 *(i don’t sk1dded 4ever... but maybe I intend to 👀)*
 
 ---
@@ -24,14 +24,7 @@
 
   * 🔍 **MushAPI**
   * 🌐 **Ashcon/Mojang API**
-
----
-
-### 🚧 What’s coming (maybe... or not)
-
-* 🌐 Web GUI (will probably suffer and quit midway)
-* ✅ Custom nickname checker (check if your nick exists or not)
-
+ 
 ---
 
 ### 🧪 How to use
@@ -44,7 +37,7 @@
 
 ### 🐞 In case of bugs / errors / crashes:
 
-* Contact [ChatGPT](https://chatgpt.com/)
+* Solve your problems with [AI](https://chatgpt.com/)
 * Or message [px.zy on Discord](https://discordlookup.com/user/1335783201850789958)
 
 ---
@@ -54,7 +47,7 @@
 
 ## 🎮 Gerador de Nicknames para Minecraft (4 caracteres)
 
-**Feito por `pxzy` e o ChatGPT ajudando**
+**Feito por `pxzy`**
 (eu não sk1dei o 4ever... mas talvez eu pretenda 👀)
 
 ---
@@ -79,13 +72,6 @@
 
 ---
 
-### 🚧 O que pretendo (talvez... ou não)
-
-* 🌐 Web GUI (provavelmente vou desistir no meio)
-* ✅ Verificador de nick personalizado (ver se o nick existe)
-
----
-
 ### 🧪 Como usar
 
 1. Abra `PythonDownload.url` e baixe o Python mais recente
@@ -96,7 +82,7 @@
 
 ### 🐞 Em caso de bugs / erros / travamentos:
 
-* Fale com o [ChatGPT](https://chatgpt.com/)
+* Resolva seus problemas com [IA](https://chatgpt.com/)
 * Ou com o [px.zy no Discord](https://discordlookup.com/user/1335783201850789958)
 
 ---
