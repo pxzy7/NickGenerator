@@ -1,18 +1,21 @@
-4 characters minecraft nick gen made by pxzy and chatgpt wow (i dont sk1dded 4ever. but maybe I intend to...)
+### 4 characters Minecraft nick gen made by pxzy and ChatGPT wow
 
+*(i don’t sk1dded 4ever... but maybe I intend to 👀)*
 
-Passo 1: Abra o PythonDownload.url para baixar o python mais recente.
-Passo 2: Abra start.bat e espere baixar as dependencias do PyP/PiP, o gerador iniciará automaticamente depois disso.
+---
 
-# Caso de bugs, erros e travamentos, contate ChatGPT (https://chatgpt.com/) ou o usuario px.zy (https://discordlookup.com/user/1335783201850789958) no discord. #
+**Passo 1:** Abra o `PythonDownload.url` para baixar o Python mais recente.
+**Passo 2:** Abra o `start.bat` e espere baixar as dependências do PyP/PiP. O gerador iniciará automaticamente depois disso.
 
-por: pxzy e chatgpt
+**Em caso de bugs, erros ou travamentos**, contate o [ChatGPT](https://chatgpt.com/) ou o usuário [px.zy](https://discordlookup.com/user/1335783201850789958) no Discord.
 
------------------
+por: pxzy e ChatGPT
 
-Step 1: Open the pythondownload.url to download the latest python. 
-Step 2: Open Start.bat and expect to download PYP/PIP dependencies, the generator will start automatically after that. 
+---
 
-# Case of bugs, errors and crashes, contact chatgpt in https://chatgpt.com/ or user px.zy (https://discordlookup.com/user/1335783201850789958) on discord. # 
+**Step 1:** Open `PythonDownload.url` to download the latest Python version.
+**Step 2:** Open `start.bat` and wait for PYP/PIP dependencies to install. The generator will start automatically after that.
 
-By: pxzy and chatgpt
+In case of bugs, errors or crashes, contact [ChatGPT](https://chatgpt.com/) or [px.zy](https://discordlookup.com/user/1335783201850789958) on Discord.
+
+By: pxzy and ChatGPT
