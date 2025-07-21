@@ -1,6 +1,6 @@
 ## 🎮 4-Character Minecraft Nickname Generator
 
-**Made by `pxzy` & ChatGPT**
+**Made by `pxzy` & ChatGPT support**
 *(i don’t sk1dded 4ever... but maybe I intend to 👀)*
 
 ---
@@ -52,7 +52,7 @@
 
 ## 🎮 Gerador de Nicknames para Minecraft (4 caracteres)
 
-**Feito por `pxzy` e ChatGPT**
+**Feito por `pxzy` e o ChatGPT ajudando**
 *(eu nunca sk1ddei... mas talvez eu irei... 👀)*
 
 ---
