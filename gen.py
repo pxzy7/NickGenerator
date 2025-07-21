@@ -27,12 +27,24 @@ def generate_nick(length, first_letter="", charset="letters", use_underscore=Fal
     else:
         chars = string.ascii_lowercase
 
-    if charset == "mojang_random3":
-        base = ''.join(random.choices(chars, k=3))
-    elif first_letter and first_letter != "0":
-        base = first_letter.lower() + ''.join(random.choices(chars, k=length - 1))
+    # Lógica especial para garantir pelo menos 1 letra e 1 número (sem ser só número)
+    if charset in ["letters_digits", "all"]:
+        while True:
+            if first_letter and first_letter != "0":
+                base = first_letter.lower() + ''.join(random.choices(chars, k=length - 1))
+            else:
+                base = ''.join(random.choices(chars, k=length))
+
+            # Verifica se contém pelo menos uma letra e um número, e não é só número
+            if any(c.isalpha() for c in base) and any(c.isdigit() for c in base):
+                break
     else:
-        base = ''.join(random.choices(chars, k=length))
+        if charset == "mojang_random3":
+            base = ''.join(random.choices(chars, k=3))
+        elif first_letter and first_letter != "0":
+            base = first_letter.lower() + ''.join(random.choices(chars, k=length - 1))
+        else:
+            base = ''.join(random.choices(chars, k=length))
 
     if use_underscore and length > 1 and charset != "mojang_random3":
         index = random.randint(0, length - 1)
@@ -156,7 +168,7 @@ def start_generation():
 def stop_generation():
     global running
     running = False
-    safe_log("\nGeneration stopped by user.")
+    safe_log("\nGeneration stopped.")
 
 def clear_logs():
     logbox.configure(state="normal")
@@ -170,7 +182,7 @@ def copy_current_nicks():
     clipboard_text = "\n".join(current_generated_nicks)
     root.clipboard_clear()
     root.clipboard_append(clipboard_text)
-    messagebox.showinfo("Copied", f"Copied {len(current_generated_nicks)} nicknames to clipboard.")
+    messagebox.showinfo("Copied", f"Copied {len(current_generated_nicks)} nicknames.")
 
 def save_to_txt():
     messagebox.showinfo("Info", "Files are automatically saved based on charset type!")
@@ -181,7 +193,7 @@ def show_files_info():
 # ------------------ CustomTkinter GUI ------------------
 root = ctk.CTk()
 root.title("Minecraft Nick Generator")
-root.geometry("500x650")  # smaller height as requested
+root.geometry("500x690")  # smaller height as requested
 root.configure(fg_color="#0a0a0a")
 
 comic_font = ctk.CTkFont(family="Comic Sans MS", size=13)
