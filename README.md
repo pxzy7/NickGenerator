@@ -16,7 +16,6 @@
   * Numbers only
   * Lowercase + Numbers
   * **ALL** (lowercase + UPPERCASE + numbers)
-  * **3-char mode** (super rare, ultra thread-heavy 👻)
 * 🖥️ **Beautiful dark GUI**
 * ✍️ **Comic Sans font** (the only one that matters)
 * 🐍 **Optimized Python**
@@ -61,7 +60,6 @@
   * Apenas números
   * Letras minúsculas + números
   * **TODOS** (minúsculas + MAIÚSCULAS + números)
-  * **Modo 3 letras** (muito raro, consome MUITA thread 👻)
 * 🖥️ **Interface escura, minimalista e bonita**
 * ✍️ **Fonte Comic Sans** (a melhor, foda-se)
 * 🐍 **Python otimizado**
