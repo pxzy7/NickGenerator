@@ -22,12 +22,9 @@ def generate_nick(length, first_letter="", charset="letters", use_underscore=Fal
         chars = string.ascii_lowercase + string.digits
     elif charset == "all":
         chars = string.ascii_letters + string.digits
-    elif charset == "mojang_random3":
-        chars = allowed_chars
     else:
         chars = string.ascii_lowercase
 
-    # Lógica especial para garantir pelo menos 1 letra e 1 número (sem ser só número)
     if charset in ["letters_digits", "all"]:
         while True:
             if first_letter and first_letter != "0":
@@ -35,18 +32,15 @@ def generate_nick(length, first_letter="", charset="letters", use_underscore=Fal
             else:
                 base = ''.join(random.choices(chars, k=length))
 
-            # Verifica se contém pelo menos uma letra e um número, e não é só número
             if any(c.isalpha() for c in base) and any(c.isdigit() for c in base):
                 break
     else:
-        if charset == "mojang_random3":
-            base = ''.join(random.choices(chars, k=3))
-        elif first_letter and first_letter != "0":
+        if first_letter and first_letter != "0":
             base = first_letter.lower() + ''.join(random.choices(chars, k=length - 1))
         else:
             base = ''.join(random.choices(chars, k=length))
 
-    if use_underscore and length > 1 and charset != "mojang_random3":
+    if use_underscore and length > 1:
         index = random.randint(0, length - 1)
         base = base[:index] + '_' + base[index + 1:] if index < len(base) - 1 else base[:index] + '_'
 
@@ -57,7 +51,7 @@ def check_ashcon(nick):
     url = f"https://api.ashcon.app/mojang/v2/user/{nick}"
     try:
         response = requests.get(url, timeout=5)
-        return response.status_code == 404  # Nick available
+        return response.status_code == 404
     except:
         return False
 
@@ -73,7 +67,7 @@ def check_mush(nick):
 # ------------------ Threaded Generation ------------------
 running = False
 seen_nicks = set()
-current_generated_nicks = []  # to store current session generated nicks
+current_generated_nicks = []
 
 def safe_log(msg):
     def append_log():
@@ -88,7 +82,7 @@ def generate_and_check(length, amount, first_letter, charset, use_underscore):
     running = True
     generated = 0
     attempts = 0
-    max_attempts = 100000 if charset == "mojang_random3" else 1000
+    max_attempts = 1000
 
     current_generated_nicks = []
 
@@ -98,8 +92,7 @@ def generate_and_check(length, amount, first_letter, charset, use_underscore):
         "letters": "valid_nicks_letters.txt",
         "digits": "valid_nicks_digits.txt",
         "letters_digits": "valid_nicks_letters_digits.txt",
-        "all": "valid_nicks_all.txt",
-        "mojang_random3": "valid_nicks_random3.txt"
+        "all": "valid_nicks_all.txt"
     }.get(charset, "valid_nicks.txt")
 
     def worker():
@@ -126,16 +119,11 @@ def generate_and_check(length, amount, first_letter, charset, use_underscore):
             safe_log(f"Ashcon: {'✅ Available' if ashcon_available else '❌ Taken'}")
             safe_log("----------------------------------------")
 
-            time.sleep(0.05 if charset == "mojang_random3" else 0.3)
+            time.sleep(0.3)
 
-    thread_count = 20 if charset == "mojang_random3" else 1
-    amount = 1 if charset == "mojang_random3" else amount
-
-    threads = [threading.Thread(target=worker) for _ in range(thread_count)]
-    for t in threads:
-        t.start()
-    for t in threads:
-        t.join()
+    thread = threading.Thread(target=worker)
+    thread.start()
+    thread.join()
 
     safe_log(f"\nFinished. {generated} valid nicknames saved to '{output_file}'.")
 
@@ -147,15 +135,18 @@ def start_generation():
         length = int(length_entry.get())
         charset = charset_option.get()
 
-        # Removed amount limit check
-        if charset != "mojang_random3" and (length < 4 or length > 16):
+        if length == 3:
+            messagebox.showerror("Error", "The 3-character nickname option has been removed due to too many bugs.")
+            return
+
+        if length < 4 or length > 16:
             raise ValueError("Length must be between 4 and 16")
 
         first_letter = first_letter_entry.get()
         use_underscore = underscore_check.get()
 
         seen_nicks = set()
-        
+
         logbox.configure(state="normal")
         logbox.delete("1.0", "end")
         logbox.configure(state="disabled")
@@ -193,7 +184,7 @@ def show_files_info():
 # ------------------ CustomTkinter GUI ------------------
 root = ctk.CTk()
 root.title("Minecraft Nick Generator")
-root.geometry("500x690")  # smaller height as requested
+root.geometry("500x690")
 root.configure(fg_color="#0a0a0a")
 
 comic_font = ctk.CTkFont(family="Comic Sans MS", size=13)
@@ -225,7 +216,7 @@ first_letter_entry.pack(pady=(0, 10), padx=15, fill="x")
 
 ctk.CTkLabel(input_frame, text="Character Set:", font=comic_font, text_color="#ffffff").pack()
 charset_option = ctk.CTkOptionMenu(input_frame,
-                                  values=["letters", "digits", "letters_digits", "all", "mojang_random3"],
+                                  values=["letters", "digits", "letters_digits", "all"],
                                   font=comic_font, fg_color="#cc0000", button_color="#cc0000",
                                   button_hover_color="#ff1a1a")
 charset_option.set("letters")
@@ -234,15 +225,11 @@ charset_option.pack(pady=(0, 10), padx=15, fill="x")
 underscore_check = ctk.CTkCheckBox(input_frame, text="Use Underscore (_)", font=comic_font, text_color="#ffffff")
 underscore_check.pack(pady=(0, 15), padx=15)
 
-# Frame para todos os botões em grid 2x2
 button_frame = ctk.CTkFrame(frame, fg_color="#2a2a2a", border_color="#cc0000", border_width=1)
 button_frame.pack(padx=15, pady=5, fill="x")
-
-# Configurar o grid para ser responsivo
 button_frame.grid_columnconfigure(0, weight=1)
 button_frame.grid_columnconfigure(1, weight=1)
 
-# Primeira linha: Start e Stop Generation
 start_button = ctk.CTkButton(button_frame, text="Start Generation", command=start_generation,
                              font=comic_font, fg_color="#cc0000", hover_color="#ff1a1a")
 start_button.grid(row=0, column=0, padx=5, pady=10, sticky="ew")
@@ -251,7 +238,6 @@ stop_button = ctk.CTkButton(button_frame, text="Stop Generation", command=stop_g
                             font=comic_font, fg_color="#cc0000", hover_color="#ff1a1a")
 stop_button.grid(row=0, column=1, padx=5, pady=10, sticky="ew")
 
-# Segunda linha: Clear Logs e Copy Current Generated Nicks
 clear_button = ctk.CTkButton(button_frame, text="Clear Logs", command=clear_logs,
                              font=comic_font, fg_color="#cc0000", hover_color="#ff1a1a")
 clear_button.grid(row=1, column=0, padx=5, pady=(0, 10), sticky="ew")
@@ -260,7 +246,6 @@ copy_button = ctk.CTkButton(button_frame, text="Copy Generated Nicks", command=c
                             font=comic_font, fg_color="#cc0000", hover_color="#ff1a1a")
 copy_button.grid(row=1, column=1, padx=5, pady=(0, 10), sticky="ew")
 
-# Logbox
 logbox = ctk.CTkTextbox(frame, height=180, state="disabled",
                         fg_color="#1a1a1a", border_color="#cc0000", text_color="#ffffff",
                         font=comic_font)
