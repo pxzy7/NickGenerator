@@ -1,3 +1,4 @@
+-# New project: https://hostbypxzy.pythonanywhere.com/login
 ## 🎮 4-Character Minecraft Nickname Generator
 
 **Made by `pxzy`**
